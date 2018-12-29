@@ -1,0 +1,16 @@
+#!/bin/bash
+
+DIR=`cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd`
+
+sed 's/\[FREQ\]/'$3'/g' $DIR/play-to-stream-vorbis.xml.tpl > $DIR/config/play-to-stream-vorbis-${3}am.xml
+chmod 644 $DIR/config/play-to-stream-vorbis-${3}am.xml
+
+mkfifo $DIR/pipes/pipe-main-${3}am
+mkfifo $DIR/pipes/pipe-bg-${3}am
+
+ffmpeg -v 0 -i $1 -f wav -ar 8000 -ac 1 -acodec pcm_u8 - | pv -q > $DIR/pipes/pipe-main-${3}am &
+ffmpeg -v 0 -i $2 -f wav -ar 8000 -ac 1 -acodec pcm_u8 - | pv -q > $DIR/pipes/pipe-bg-${3}am &
+
+$DIR/filter-radio $DIR/pipes/pipe-main-${3}am $DIR/pipes/pipe-bg-${3}am $3 $4 \
+    | oggenc -Q -r -B 8 -R 8000 -C 1 - -o - \
+    | ezstream -c $DIR/config/play-to-stream-vorbis-${3}am.xml

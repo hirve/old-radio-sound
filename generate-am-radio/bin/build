@@ -1,0 +1,3 @@
+#!/bin/bash
+
+gcc filter-radio.c -static -lm -o filter-radio

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+killall stream-radio
+killall ffmpeg
+killall ezstream
+rm bin/pipes/*

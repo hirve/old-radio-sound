@@ -1,0 +1,51 @@
+<icecast>
+    <limits>
+        <clients>100</clients>
+        <sources>10</sources>
+        <threadpool>5</threadpool>
+        <queue-size>131072</queue-size>
+        <client-timeout>30</client-timeout>
+        <header-timeout>30</header-timeout>
+        <source-timeout>30</source-timeout>
+        <burst-on-connect>1</burst-on-connect>
+        <burst-size>32768</burst-size>
+    </limits>
+ 
+    <authentication>
+        <source-password>hackme</source-password>
+        <relay-password>hackme</relay-password>
+        <admin-user>admin</admin-user>
+        <admin-password>hackme</admin-password>
+    </authentication>
+ 
+    <hostname>localhost</hostname>
+ 
+    <listen-socket>
+        <port>8092</port>
+    </listen-socket>
+ 
+    <fileserve>1</fileserve>
+    <paths>
+        <basedir>/usr/share/icecast2</basedir>
+        <logdir>.</logdir>
+        <webroot>/usr/share/icecast2/web</webroot>
+        <adminroot>/usr/share/icecast2/admin</adminroot>
+        <pidfile>/usr/share/icecast2/icecast.pid</pidfile>
+        <alias source="/" dest="/status.xsl"/>
+    </paths>
+ 
+    <logging>
+        <accesslog>access.log</accesslog>
+        <errorlog>error.log</errorlog>
+        <loglevel>1</loglevel>
+        <logsize>10000</logsize>
+    </logging>
+ 
+    <security>
+        <chroot>0</chroot>
+        <changeowner>
+            <user>icecast2</user>
+            <group>icecast</group>
+        </changeowner>
+    </security>
+</icecast>

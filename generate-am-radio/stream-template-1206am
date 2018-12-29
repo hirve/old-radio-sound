@@ -1,0 +1,10 @@
+#!/bin/bash
+
+DIR=`cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd`
+
+$DIR/bin/stream-radio \
+  "PUT_YOUR_FAVORITE_AUDIO_STREAM_HERE"\
+  "PUT_HERE_ANY_BACKGROUND_STREAM"\
+  1206\
+  1\
+  &
