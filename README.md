@@ -28,7 +28,11 @@ cd ../../icecast/
 It will start on localhost:8092 so make sure this port is free or change it in the config file.
 If you want your server to be available via internet - don't forget to change passwords in icecast/icecast-config.xml and generate-am-radio/bin/play-to-stream-vorbis.xml.tpl from "hackme" to something stronger.
 
-Edit the script generate-am-radio/stream-template-1206am
+Go to generate-am-radio folder
+```shell
+cd ../generate-am-radio/
+```
+and edit the script stream-template-1206am
 ```shell
 #!/bin/bash
 
@@ -50,3 +54,4 @@ Put here your favorite audio streams and change the other parameters if you want
 
 If all is ok after starting this script you can hear the old warm radio on localhost:8092/1206am
 
+You can copy this script with different audio streams and different frequencies and run them simultaneously, for me it worked well with about 5 streams on Raspberry Pi 2.
