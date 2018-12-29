@@ -2,7 +2,7 @@
 
 DIR=`cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd`
 
-sed 's/\[FREQ\]/'$3'/g' $DIR/play-to-stream-vorbis.xml.tpl > $DIR/config/play-to-stream-vorbis-${3}am.xml
+sed 's/\[FREQ\]/'$3'/g' $DIR/play-to-stream-vorbis.xml > $DIR/config/play-to-stream-vorbis-${3}am.xml
 chmod 644 $DIR/config/play-to-stream-vorbis-${3}am.xml
 
 mkfifo $DIR/pipes/pipe-main-${3}am
