@@ -72,7 +72,7 @@ You can copy this script with different audio streams and different frequencies 
 ```
 Now it's just a test mode, this script may be unstable.
 
-To set streams you want to watch edit the line:
+To set streams you want to watch, edit the line:
 ```shell
 streams='stream-template-1206am one-more-script-name'
 ```
