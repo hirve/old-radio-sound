@@ -64,3 +64,15 @@ Put here your favorite audio streams and change the other parameters if you want
 If all is ok after starting this script you can hear the vintage AM radio on **localhost:8092/1206am**
 
 You can copy this script with different audio streams and different frequencies and run them simultaneously, for me it worked well with about 5 streams on Raspberry Pi 2.
+
+### Autostart and restart of some streams
+
+```shell
+./start-some-streams
+```
+Now it's just a test mode, this script may be unstable.
+
+To set streams you want to watch edit the line:
+```shell
+streams='stream-template-1206am one-more-script-name'
+```
