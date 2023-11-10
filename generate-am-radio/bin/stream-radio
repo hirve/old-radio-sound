@@ -2,7 +2,9 @@
 
 DIR=`cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd`
 
+rm $DIR/pipes/main-${3}am
 mkfifo $DIR/pipes/main-${3}am
+rm $DIR/pipes/bg-${3}am
 mkfifo $DIR/pipes/bg-${3}am
 
 ffmpeg -v 0 -i $1 -f wav -ar 8000 -ac 1 -acodec pcm_u8 - | pv -q > $DIR/pipes/main-${3}am &
