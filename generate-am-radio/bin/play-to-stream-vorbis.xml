@@ -1,18 +1,31 @@
 <ezstream>
-    <url>http://127.0.0.1:8092/[FREQ]am</url>
-    <sourcepassword>hackme</sourcepassword>
+    <servers>
+        <server>
+            <hostname>127.0.0.1</hostname>
+            <password>hackme</password>
+            <port>8092</port>
+        </server>
+    </servers>
 
-    <format>VORBIS</format>
-    <filename>stdin</filename>
+    <streams>
+        <stream>
+            <mountpoint>/[FREQ]am</mountpoint>
+            <format>Ogg</format>
+            <stream_bitrate>32</stream_bitrate>
+            <stream_name>[FREQ] AM</stream_name>
+            <stream_url>/[FREQ]am</stream_url>
+            <stream_genre>AM Radio</stream_genre>
+            <stream_description>The old radio sound on [FREQ] AM</stream_description>
+            <stream_quality>3.0</stream_quality>
+            <stream_samplerate>8000</stream_samplerate>
+            <stream_channels>1</stream_channels>
+            <public>No</public>
+        </stream>
+    </streams>
 
-    <stream_once>1</stream_once>
-
-    <svrinfourl>/[FREQ]am</svrinfourl>
-
-    <svrinfobitrate>32</svrinfobitrate>
-    <svrinfoquality>3.0</svrinfoquality>
-    <svrinfochannels>1</svrinfochannels>
-    <svrinfosamplerate>8000</svrinfosamplerate>
-
-    <svrinfopublic>0</svrinfopublic>
+    <intakes>
+        <intake>
+            <type>stdin</type>
+        </intake>
+    </intakes>
 </ezstream>
