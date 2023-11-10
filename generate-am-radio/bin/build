@@ -1,5 +1,4 @@
 #!/bin/bash
 
-mkdir config
 mkdir pipes
 gcc filter-radio.c -static -lm -o filter-radio
