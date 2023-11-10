@@ -12,7 +12,7 @@ https://youtu.be/I7pTWe61BHY
 ### Installation
 Install dependencies
 ```shell
-sudo apt install git icecast2 ffmpeg vorbis-tools ezstream pv
+sudo apt install git icecast2 ffmpeg pv
 ```
 When Icecast asks to configure it say no, because we will use the config we have in the project.
 
