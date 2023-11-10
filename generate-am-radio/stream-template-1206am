@@ -7,5 +7,5 @@ $DIR/bin/stream-radio \
   "PUT_HERE_ANY_BACKGROUND_STREAM" \
   1206 \
   1 \
-  YourRadioName \
+  "Radio Station Name or City" \
   &
