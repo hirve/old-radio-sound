@@ -47,10 +47,11 @@ and edit the script **stream-template-1206am**
 DIR=`cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd`
 
 $DIR/bin/stream-radio \
-  "PUT_YOUR_FAVORITE_AUDIO_STREAM_HERE"\
-  "PUT_HERE_ANY_BACKGROUND_STREAM"\
-  1206\
-  1\
+  "PUT_YOUR_FAVORITE_AUDIO_STREAM_HERE" \
+  "PUT_HERE_ANY_BACKGROUND_STREAM" \
+  1206 \
+  1 \
+  "Radio Station Name or City" \
   &
 
 ```
@@ -60,6 +61,6 @@ Put here your favorite audio streams and change the other parameters if you want
 
 - **1** is the level of main audio stream in microvolts, the value may be in the range **1...10** or other if you like.
 
-If all is ok after starting this script you can hear the old warm radio on **localhost:8092/1206am**
+If all is ok after starting this script you can hear the vintage AM radio on **localhost:8092/1206am**
 
 You can copy this script with different audio streams and different frequencies and run them simultaneously, for me it worked well with about 5 streams on Raspberry Pi 2.
