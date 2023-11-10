@@ -1,0 +1,27 @@
+#!/bin/bash
+
+DIR=`cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd`
+
+streams='stream-template-1206am one-more-script-name'
+
+while true
+do
+    for stream in $streams
+    do
+        name=`echo $stream | grep -Po '[1-9]\d+am'`
+        freq=`echo $name | grep -Po '\d+'`
+
+        echo Checking "http://127.0.0.1:8092/$name".ogg
+
+        if ffprobe -v quiet "http://127.0.0.1:8092/$name".ogg
+        then
+            echo $name is OK
+        else
+            echo $name is FAIL, trying to restart...
+            $DIR/$stream &
+        fi
+        sleep 1
+    done
+    echo
+    sleep 10
+done
