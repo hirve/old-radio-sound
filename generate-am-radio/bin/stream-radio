@@ -2,15 +2,14 @@
 
 DIR=`cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd`
 
-sed 's/\[FREQ\]/'$3'/g' $DIR/play-to-stream-vorbis.xml > $DIR/config/play-to-stream-vorbis-${3}am.xml
-chmod 644 $DIR/config/play-to-stream-vorbis-${3}am.xml
+mkfifo $DIR/pipes/main-${3}am
+mkfifo $DIR/pipes/bg-${3}am
 
-mkfifo $DIR/pipes/pipe-main-${3}am
-mkfifo $DIR/pipes/pipe-bg-${3}am
+ffmpeg -v 0 -i $1 -f wav -ar 8000 -ac 1 -acodec pcm_u8 - | pv -q > $DIR/pipes/main-${3}am &
+ffmpeg -v 0 -i $2 -f wav -ar 8000 -ac 1 -acodec pcm_u8 - | pv -q > $DIR/pipes/bg-${3}am &
 
-ffmpeg -v 0 -i $1 -f wav -ar 8000 -ac 1 -acodec pcm_u8 - | pv -q > $DIR/pipes/pipe-main-${3}am &
-ffmpeg -v 0 -i $2 -f wav -ar 8000 -ac 1 -acodec pcm_u8 - | pv -q > $DIR/pipes/pipe-bg-${3}am &
+$DIR/filter-radio $DIR/pipes/main-${3}am $DIR/pipes/bg-${3}am $3 $4 \
+    | ffmpeg -v 0 -f u8 -ar 8000 -ac 1 -i - -f ogg -b:a 32 -q:a 3 -content_type "audio/ogg" \
+        -ice_name "$3 AM" -ice_description "$5" -ice_url "/${3}am.ogg" -ice_genre "AM Radio" \
+        icecast://source:hackme@127.0.0.1:8092/"$3"am.ogg
 
-$DIR/filter-radio $DIR/pipes/pipe-main-${3}am $DIR/pipes/pipe-bg-${3}am $3 $4 \
-    | oggenc -Q -r -B 8 -R 8000 -C 1 - -o - \
-    | ezstream -c $DIR/config/play-to-stream-vorbis-${3}am.xml
