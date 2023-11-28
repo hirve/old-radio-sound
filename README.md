@@ -1,4 +1,5 @@
 # Old Radio Sound
+<img src="https://github.com/hirve/old-radio-sound/blob/master/arttechlab.jpg" alt="The old receiver photo." width="100%">
 The server to emulate old warm AM radio sound on Raspberry Pi
 
 ### The video how it works
