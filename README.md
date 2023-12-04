@@ -72,3 +72,4 @@ To set streams you want to watch, edit the line:
 ```shell
 streams='stream-template-1206am one-more-script-name'
 ```
+Notice that this script takes frequency from the station script name (stream-template-**1206am**).
