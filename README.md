@@ -70,6 +70,6 @@ Now it's just a test mode, this script may be unstable.
 
 To set streams you want to watch, edit the line:
 ```shell
-streams='stream-template-1206am one-more-script-name'
+streams='stream-template-1206am one-more-radio-station-1035am'
 ```
 Notice that this script takes frequency from the station script name (stream-template-**1206am**).
