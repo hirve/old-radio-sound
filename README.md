@@ -1,4 +1,5 @@
 # Old Radio Sound
+<img src="https://github.com/hirve/old-radio-sound/blob/master/arttechlab.jpg" alt="The old receiver photo." width="100%">
 The server to emulate old warm AM radio sound on Raspberry Pi
 
 ### The video how it works
@@ -69,5 +70,6 @@ Now it's just a test mode, this script may be unstable.
 
 To set streams you want to watch, edit the line:
 ```shell
-streams='stream-template-1206am one-more-script-name'
+streams='stream-template-1206am one-more-radio-station-1035am'
 ```
+Notice that this script takes frequency from the station script name (stream-template-**1206am**).
