@@ -61,6 +61,8 @@ If all is ok after starting this script you can hear the vintage AM radio on **l
 
 You can copy this script with different audio streams and different frequencies and run them simultaneously, for me it worked well with about 5 streams on Raspberry Pi 2.
 
+<img src="https://github.com/hirve/old-radio-sound/blob/master/radio-scale.jpg" alt="The old receiver photo." width="100%">
+
 ### Autostart and restart of some streams
 
 ```shell
