@@ -30,7 +30,7 @@ cd ../../icecast/
 ./start-icecast
 ```
 It will start on **localhost:8092** so make sure this port is free or change it in the config file.
-If you want your server to be available via internet - don't forget to change passwords in **icecast/icecast-config.xml** and **generate-am-radio/bin/play-to-stream-vorbis.xml** from "hackme" to something stronger.
+If you want your server to be available via internet - don't forget to change passwords in **icecast/icecast-config.xml** and **generate-am-radio/bin/stream-radio** from "hackme" to something stronger.
 
 Go to **generate-am-radio** folder
 ```shell
