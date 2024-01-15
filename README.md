@@ -24,6 +24,7 @@ cd old-radio-sound/generate-am-radio/bin/
 ./build
 ```
 
+### Usage
 Start Icecast
 ```shell
 cd ../../icecast/
