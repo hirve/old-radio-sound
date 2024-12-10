@@ -11,7 +11,7 @@ ffmpeg -v 0 -i $1 -f wav -ar 8000 -ac 1 -acodec pcm_u8 - | pv -q > $DIR/pipes/ma
 ffmpeg -v 0 -i $2 -f wav -ar 8000 -ac 1 -acodec pcm_u8 - | pv -q > $DIR/pipes/bg-${3}am &
 
 $DIR/filter-radio $DIR/pipes/main-${3}am $DIR/pipes/bg-${3}am $3 $4 \
-    | ffmpeg -v 0 -f u8 -ar 8000 -ac 1 -i - -f ogg -b:a 32 -q:a 3 -content_type "audio/ogg" \
+    | ffmpeg -v 0 -f u8 -ar 8000 -ac 1 -i - -f ogg -b:a 32k -q:a 3 -content_type "audio/ogg" \
         -ice_name "$3 AM" -ice_description "$5" -ice_url "/${3}am.ogg" -ice_genre "AM Radio" \
         icecast://source:hackme@127.0.0.1:8092/"$3"am.ogg
 
